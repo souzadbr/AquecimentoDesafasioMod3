@@ -81,6 +81,9 @@ public class Sistema {
                 System.out.println("Quantidade de faturas cadastradas "+faturas.size());
                 System.out.println(faturas);
             }
+            else{
+                System.out.println("Digite uma opção válida!");
+            }
         }
         return continuar;
     }
