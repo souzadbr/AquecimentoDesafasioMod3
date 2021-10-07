@@ -46,10 +46,13 @@ public class ServicoConsumidor {
     }
 
 
-    public static void listarConsumidores (){
+     public static List<Consumidor> listarConsumidores (){
         for (Consumidor consumidoresReferencia:consumidores) {
             System.out.println(consumidores);
         }
+        return consumidores;
     }
+
+    
 
 }

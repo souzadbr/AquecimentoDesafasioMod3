@@ -16,6 +16,7 @@ public class Sistema {
     public static void menuGeral(){
         System.out.println("Digite 1 para Cadastrar cliente. ");
         System.out.println("Digite 2 para Cadastrar fatura. ");
+        System.out.println("Digite 3 para Consultar fatura por email do usuário. ");
     }
 
     public static void menuTipo() {
@@ -50,6 +51,15 @@ public class Sistema {
         return ServicoFatura.cadastrarFatura(email,valor,dataVencimento);
     }
 
+    public static List<Fatura>pesquisarFaturaViaEmailUsuario (){
+        String email = capturaDados("Digite o email vinculado a fatura: ").nextLine();
+        //validar email
+        //chamar metodo validar email da classe ServiçoFatura
+        List<Fatura>faturaDoUsuario = ServicoFatura.pesquisarFaturaViaEmailConsumidor(email);
+
+        return faturaDoUsuario;
+    }
+
     public static boolean execultar ()throws Exception{
         boolean continuar = true;
 
@@ -62,9 +72,14 @@ public class Sistema {
                 Consumidor consumidor = cadastrarConsumidor();
                 System.out.println(consumidor);
             }
-            if(opcaoUsuario == 2){
+            else if(opcaoUsuario == 2){
                 Fatura fatura = cadastrarFatura();
                 System.out.println(fatura);
+            }
+            else if (opcaoUsuario == 3){
+                List <Fatura>faturas = pesquisarFaturaViaEmailUsuario();
+                System.out.println("Quantidade de faturas cadastradas "+faturas.size());
+                System.out.println(faturas);
             }
         }
         return continuar;

@@ -16,8 +16,8 @@ public class ServicoFatura {
         faturas.add(fatura);
 
         return fatura;
-
     }
+
 
     public static List<Fatura> pesquisarFaturaPorEmailConsumidor(String email) {
         //Criar uma lista de faturas
@@ -32,9 +32,20 @@ public class ServicoFatura {
         return faturaUsuario;
     }
 
+
     public static void listarFaturas() {
         for (Fatura faturasReferencia : faturas) {
             System.out.println(faturasReferencia);
         }
+    }
+
+    public static List<Fatura> pesquisarFaturaViaEmailConsumidor(String email){
+        List<Fatura>faturaDoUsuario = new ArrayList<>();
+        for (Fatura faturaReferencia:faturas) {
+            if(faturaReferencia.getConsumidor().getEmail().equals(email)){
+                faturaDoUsuario.add(faturaReferencia);
+            }
+        }
+        return faturaDoUsuario;
     }
 }
