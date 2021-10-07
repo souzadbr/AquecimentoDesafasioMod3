@@ -18,41 +18,48 @@ public class ServicoConsumidor {
         return tipo;
     }
 
-    public static TipoConsumidor validarTipoConsumidor (String tipo) throws Exception{
+    public static TipoConsumidor validarTipoConsumidor(String tipo) throws Exception {
 
-        for (TipoConsumidor tipoReferencia:TipoConsumidor.values()){
-            if(tipo.equalsIgnoreCase(String.valueOf(tipoReferencia))){
+        for (TipoConsumidor tipoReferencia : TipoConsumidor.values()) {
+            if (tipo.equalsIgnoreCase(String.valueOf(tipoReferencia))) {
                 return tipoReferencia;
             }
         }
-         throw new Exception("Tipo de Consumidor não encontrado.");
+        throw new Exception("Tipo de Consumidor não encontrado.");
     }
 
-    public static Consumidor cadastrarConsumidor(String nome, String email, String tipoRecebido) throws Exception{
+    public static Consumidor cadastrarConsumidor(String nome, String email, String tipoRecebido) throws Exception {
+        validarEmail(email);
+        verificarSeoEmailJáExisteNoSistema(email);
         TipoConsumidor tipo = validarTipoConsumidor(tipoRecebido);
-
-        Consumidor consumidor = new Consumidor(nome, email,tipo);
+        Consumidor consumidor = new Consumidor(nome, email, tipo);
         consumidores.add(consumidor);
         return consumidor;
     }
 
-    public static Consumidor pesquisarConsumidorPorEmail (String email)throws Exception{
-        for (Consumidor consumidorReferencia: consumidores) {
-            if(consumidorReferencia.getEmail().equals(email)){
+    public static Consumidor pesquisarConsumidorPorEmail(String email) throws Exception {
+        for (Consumidor consumidorReferencia : consumidores) {
+            if (consumidorReferencia.getEmail().equals(email)) {
                 return consumidorReferencia;
             }
         }
         throw new Exception("Consumidor não Cadastrado no sistema");
     }
 
-
-     public static List<Consumidor> listarConsumidores (){
-        for (Consumidor consumidoresReferencia:consumidores) {
-            System.out.println(consumidores);
+    public static void validarEmail(String email)throws Exception{
+        if(!email.contains("@")){
+            throw new Exception("E-mail inválido!");
         }
-        return consumidores;
     }
 
-    
+
+    public static void verificarSeoEmailJáExisteNoSistema(String email) throws Exception {
+        for (Consumidor consumidorReferencia : consumidores) {
+            if (consumidorReferencia.getEmail().equals(email)) {
+                throw new Exception("Esse e-mail já está cadastrado em nosso sistema. ");
+            }
+        }
+    }
+
 
 }
