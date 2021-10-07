@@ -1,5 +1,7 @@
 package br.com.zup;
 
+import javax.sound.midi.Soundbank;
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +13,10 @@ public class Sistema {
         return new Scanner(System.in);
     }
 
+    public static void menuGeral(){
+        System.out.println("Digite 1 para Cadastrar cliente. ");
+        System.out.println("Digite 2 para Cadastrar fatura. ");
+    }
 
     public static void menuTipo() {
         List<TipoConsumidor> tipo = ServicoConsumidor.mostrarTipo();
@@ -44,4 +50,23 @@ public class Sistema {
         return ServicoFatura.cadastrarFatura(email,valor,dataVencimento);
     }
 
+    public static boolean execultar ()throws Exception{
+        boolean continuar = true;
+
+        while (continuar){
+
+            menuGeral();
+            int opcaoUsuario = capturaDados("Digite a opção desejada:").nextInt();
+
+            if(opcaoUsuario == 1){
+                Consumidor consumidor = cadastrarConsumidor();
+                System.out.println(consumidor);
+            }
+            if(opcaoUsuario == 2){
+                Fatura fatura = cadastrarFatura();
+                System.out.println(fatura);
+            }
+        }
+        return continuar;
+    }
 }
