@@ -34,4 +34,16 @@ public class Fatura {
     public void setConsumidor(Consumidor consumidor) {
         this.consumidor = consumidor;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder retorno = new StringBuilder();
+        retorno.append("\n-------Descritivo Fatura-------");
+        retorno.append("\n Consumidor: " + consumidor);
+        retorno.append("Valor da Fatura: R$ " + valor);
+        retorno.append("Data de Vencimento: " + dataDeVencimento);
+
+
+        return retorno.toString();
+    }
 }
