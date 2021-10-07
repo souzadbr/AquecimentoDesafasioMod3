@@ -34,4 +34,14 @@ public class Consumidor {
     public void setTipo(TipoConsumidor tipo) {
         this.tipo = tipo;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder retorno = new StringBuilder();
+        retorno.append("Nome Consumidor: "+nome);
+        retorno.append("Email: "+email);
+        retorno.append("Tipo de Consumidor: "+ tipo);
+
+        return retorno.toString();
+    }
 }
