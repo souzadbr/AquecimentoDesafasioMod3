@@ -10,4 +10,28 @@ public class Fatura {
         this.dataDeVencimento = dataDeVencimento;
         this.consumidor = consumidor;
     }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public String getDataDeVencimento() {
+        return dataDeVencimento;
+    }
+
+    public void setDataDeVencimento(String dataDeVencimento) {
+        this.dataDeVencimento = dataDeVencimento;
+    }
+
+    public Consumidor getConsumidor() {
+        return consumidor;
+    }
+
+    public void setConsumidor(Consumidor consumidor) {
+        this.consumidor = consumidor;
+    }
 }
