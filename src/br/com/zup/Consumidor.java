@@ -11,6 +11,7 @@ public class Consumidor {
         this.tipo = tipo;
     }
 
+
     public String getNome() {
         return nome;
     }
