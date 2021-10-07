@@ -39,9 +39,9 @@ public class Fatura {
     public String toString() {
         StringBuilder retorno = new StringBuilder();
         retorno.append("\n-------Descritivo Fatura-------");
-        retorno.append("\n Consumidor: " + consumidor);
-        retorno.append("Valor da Fatura: R$ " + valor);
-        retorno.append("Data de Vencimento: " + dataDeVencimento);
+        retorno.append("\nInformações: " + consumidor);
+        retorno.append("\nValor da Fatura: R$ " + valor);
+        retorno.append("\nData de Vencimento: " + dataDeVencimento);
 
 
         return retorno.toString();

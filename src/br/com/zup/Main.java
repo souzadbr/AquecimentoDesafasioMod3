@@ -5,7 +5,10 @@ public class Main {
     public static void main(String[] args) {
 	  try{
         Sistema.cadastrarConsumidor();
+        Sistema.cadastrarFatura();
         ServicoConsumidor.listarConsumidores();
+        ServicoFatura.listarFaturas();
+
       }catch (Exception erro){
           System.out.println(erro.getMessage());
       }

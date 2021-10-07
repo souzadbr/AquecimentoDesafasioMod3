@@ -36,6 +36,16 @@ public class ServicoConsumidor {
         return consumidor;
     }
 
+    public static Consumidor pesquisarConsumidorPorEmail (String email)throws Exception{
+        for (Consumidor consumidorReferencia: consumidores) {
+            if(consumidorReferencia.getEmail().equals(email)){
+                return consumidorReferencia;
+            }
+        }
+        throw new Exception("Consumidor não Cadastrado no sistema");
+    }
+
+
     public static void listarConsumidores (){
         for (Consumidor consumidoresReferencia:consumidores) {
             System.out.println(consumidores);
