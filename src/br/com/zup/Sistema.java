@@ -11,8 +11,8 @@ public class Sistema {
         return new Scanner(System.in);
     }
 
-    public static void menuTipo (){
-        List<TipoConsumidor>tipo = ServicoConsumidor.mostrarTipo();
+    public static void menuTipo() {
+        List<TipoConsumidor> tipo = ServicoConsumidor.mostrarTipo();
         System.out.println("\n Tipo de Consumidores: ");
         // Exibindo a lista de tipo de conhsumidor
         for (int i = 0; i < tipo.size(); i++) {
@@ -20,13 +20,14 @@ public class Sistema {
         }
     }
 
-    //Cadastrar consumidor
-    private static Consumidor cadastrarConsumidor (){
+   public static Consumidor cadastrarConsumidor() throws Exception {
         String nome = capturaDados("Digite o nome do consumidor: ").nextLine();
         String email = capturaDados("Digite o e-mail do consumidor: ").nextLine();
-        //menu Tipo do Consumidor
         menuTipo();
+        String tipo = capturaDados("Por favor, digite o tipo de Pessoa que se encaixa: ").nextLine();
 
+
+        return ServicoConsumidor.cadastrarConsumidor(nome, email,tipo);
     }
 
 

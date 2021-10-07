@@ -9,6 +9,10 @@ public class Consumidor {
         this.nome = nome;
         this.email = email;
         this.tipo = tipo;
+
+    }
+    public Consumidor() {
+
     }
 
 
@@ -39,9 +43,9 @@ public class Consumidor {
     @Override
     public String toString() {
         StringBuilder retorno = new StringBuilder();
-        retorno.append("Nome Consumidor: "+nome);
-        retorno.append("Email: "+email);
-        retorno.append("Tipo de Consumidor: "+ tipo);
+        retorno.append("\n Nome Consumidor: "+nome);
+        retorno.append("\n Email: "+email);
+        retorno.append("\n Tipo de Consumidor: "+ tipo);
 
         return retorno.toString();
     }
